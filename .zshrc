@@ -59,7 +59,6 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 #BRUNO OPTIONS:
 setopt SH_WORD_SPLIT # Pra fazer split estilo bash (obriga\ a\ escrever\ assim\ pa\ não\ partir, mas torna compativel com scripts bash)
 setopt autopushd pushdminus pushdsilent pushdtohome # pra fazer algo estilo 'cd -' e TAB e ele dá-te uma lista dos path que já fizeste (tipo historico)
-#setopt COMPLETE_IN_WORD # pra fazer complete a meio de uma palavra tipo, f"tecla TAB"ox dar firefox
 
 ###############
 #Edited By me:#
@@ -133,3 +132,6 @@ _myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*' hosts $_myhosts
 #Make it in English
 LANG=en_GB.UTF-8
+
+#Remove autocorrect "feature":
+unsetopt correct_all

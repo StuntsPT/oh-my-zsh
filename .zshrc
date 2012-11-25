@@ -44,6 +44,9 @@ bindkey -v
 
 #BRUNO OPTIONS:
 setopt SH_WORD_SPLIT # Pra fazer split estilo bash (obriga\ a\ escrever\ assim\ pa\ não\ partir, mas torna compativel com scripts bash)
+#History search
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 ###############
 #Edited By me:#
@@ -51,10 +54,10 @@ setopt SH_WORD_SPLIT # Pra fazer split estilo bash (obriga\ a\ escrever\ assim\ 
 zstyle ':completion:*:match:*' match-original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 ### The following lines were added by compinstall
-#zstyle ':completion:*' completer _complete _ignored _approximate
-#zstyle ':completion:*' max-errors 1
-#zstyle ':completion:*' menu select=0
-#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' max-errors 1
+zstyle ':completion:*' menu select=0
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 eval `dircolors -b`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 

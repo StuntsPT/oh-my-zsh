@@ -6,8 +6,9 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="nanotech"
-ZSH_THEME="alanpeabody"
 #ZSH_THEME="bira"
+#ZSH_THEME="alanpeabody"
+ZSH_THEME="candy"
 
 alias upgrade='yaourt -Syu --aur'
 alias cleanup='yaourt -Qtd'

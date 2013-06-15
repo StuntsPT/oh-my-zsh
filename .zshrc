@@ -12,14 +12,14 @@ alias upgrade='yaourt -Syu --aur'
 alias cleanup='yaourt -Qtd'
 alias itxroot='ssh -Y root@192.168.2.2'
 alias itxme='ssh -Y 192.168.2.2'
-alias Tagis='rdesktop -k pt -g 1280x800 10.101.134.93 -r clipboard:CLIPBOARD -r disk:FPM=/home/francisco/ -r sound:local:alsa'
+alias Tagis='rdesktop -k pt -g 1280x800 10.101.134.108 -r clipboard:CLIPBOARD -r disk:FPM=/home/francisco/ -r sound:local:alsa'
 alias RADGET="cat /sys/class/drm/card0/device/power_profile"
 alias MIDRAD="echo mid > /sys/class/drm/card0/device/power_profile"
 alias LOWRAD="echo low > /sys/class/drm/card0/device/power_profile"
 alias HIGHRAD="echo high > /sys/class/drm/card0/device/power_profile"
 
 # Set to this to use case-sensitive completion
-#CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
@@ -31,7 +31,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -64,7 +64,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 eval `dircolors -b`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-#unsetopt beep
+unsetopt beep
 #Colour man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -83,3 +83,10 @@ zstyle ':completion:*:kill:*:processes' command "ps x"
 
 #Remove autocorrect "feature":
 unsetopt correct_all
+
+#Make End and Home keys work fine:
+typeset -A key
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line

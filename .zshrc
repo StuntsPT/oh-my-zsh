@@ -36,7 +36,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git systemd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,8 +48,8 @@ bindkey -v
 #BRUNO OPTIONS:
 setopt SH_WORD_SPLIT # Pra fazer split estilo bash (obriga\ a\ escrever\ assim\ pa\ não\ partir, mas torna compativel com scripts bash)
 #History search
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward
 
 ###############
 #Edited By me:#
@@ -80,10 +80,11 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 unsetopt correct_all
 
 #Make End, Home, Del and Ins keys work fine:
-
+#autoload zkbd
 source ~/.oh-my-zsh/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
 
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
 [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
 [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
 [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+

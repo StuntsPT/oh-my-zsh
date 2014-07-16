@@ -76,17 +76,14 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 #Taken from Bruno and altered:
 
-# tab completion for PID 
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*:kill:*:processes' command "ps x"
-
 #Remove autocorrect "feature":
 unsetopt correct_all
 
-#Make End and Home keys work fine:
-typeset -A key
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+#Make End, Home, Del and Ins keys work fine:
+
+source ~/.oh-my-zsh/zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+
+[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line

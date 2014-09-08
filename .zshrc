@@ -8,15 +8,16 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="alanpeabody"
 ZSH_THEME="candy"
 
-alias upgrade='yaourt -Syu --aur'
-alias cleanup='yaourt -Qtd'
-alias itxroot='ssh -Y root@192.168.2.2'
-alias itxme='ssh -Y 192.168.2.2'
-alias Tagis='rdesktop -k pt -g 1280x800 10.101.134.108 -r clipboard:CLIPBOARD -r disk:FPM=/home/francisco/ -r sound:local:alsa'
+alias upgrade="yaourt -Syu --aur"
+alias cleanup="yaourt -Qtd"
+alias itxroot="ssh -Y root@192.168.2.2"
+alias itxme="ssh -Y 192.168.2.2"
+alias Tagis="rdesktop -k pt -g 1280x800 10.101.134.108 -r clipboard:CLIPBOARD -r disk:FPM=/home/francisco/ -r sound:local:alsa"
 alias RADGET="cat /sys/class/drm/card0/device/power_profile"
 alias MIDRAD="echo mid > /sys/class/drm/card0/device/power_profile"
 alias LOWRAD="echo low > /sys/class/drm/card0/device/power_profile"
 alias HIGHRAD="echo high > /sys/class/drm/card0/device/power_profile"
+alias scp="rsync -avP"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"

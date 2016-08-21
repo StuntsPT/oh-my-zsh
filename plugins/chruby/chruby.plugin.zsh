@@ -16,15 +16,12 @@
 # rvm and rbenv plugins also provide this alias
 alias rubies='chruby'
 
-local _chruby_path
-local _chruby_auto
-
 _homebrew-installed() {
     whence brew &> /dev/null
 }
 
 _chruby-from-homebrew-installed() {
-  [ -r $(brew --prefix chruby)] &> /dev/null
+  [ -r $(brew --prefix chruby) ] &> /dev/null
 }
 
 _ruby-build_installed() {
@@ -42,6 +39,9 @@ if _ruby-build_installed; then
 fi
 
 _source_from_omz_settings() {
+    local _chruby_path
+    local _chruby_auto
+    
     zstyle -s :omz:plugins:chruby path _chruby_path
     zstyle -s :omz:plugins:chruby auto _chruby_auto
 

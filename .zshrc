@@ -154,3 +154,11 @@ transfer() {
 }
 
 alias transfer=transfer
+
+# Use nvim-qt with a decent window size and in background
+
+function qvim {
+    nvim-qt --geometry 800x600 -- "$@" &
+}
+
+alias qvim=qvim

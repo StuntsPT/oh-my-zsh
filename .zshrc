@@ -91,8 +91,8 @@ source ~/.oh-my-zsh/zkbd/keycodes
 
 
 #Temp fix for grep:
-alias grep="/usr/bin/grep $GREP_OPTIONS"
-unset GREP_OPTIONS
+#alias grep="/usr/bin/grep $GREP_OPTIONS"
+#unset GREP_OPTIONS
 
 
 #

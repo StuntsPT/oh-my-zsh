@@ -162,3 +162,6 @@ function qvim {
 }
 
 alias qvim=qvim
+
+# Source zsh-syntax-highlight
+source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

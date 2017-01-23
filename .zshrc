@@ -82,7 +82,7 @@ unsetopt correct_all
 
 #Make End, Home, Del and Ins keys work fine:
 #autoload zkbd
-source ~/.oh-my-zsh/zkbd/keycodes
+source ${ZSH}/zkbd/keycodes
 
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
 [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line

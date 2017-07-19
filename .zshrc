@@ -155,13 +155,9 @@ transfer() {
 
 alias transfer=transfer
 
-# Use nvim-qt with a decent window size and in background
-
-#function qvim {
-#    nvim-qt --geometry 800x600 -- "$@" &
-#}
-
+# Alias for neovim-qt
 alias qvim=nvim-qt
+alias qvimdiff="nvim-qt -- -d"
 
 # Source zsh-syntax-highlight
 source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -175,3 +171,5 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 # unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 # MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+
+# eval $(thefuck --alias)

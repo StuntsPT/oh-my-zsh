@@ -155,9 +155,13 @@ transfer() {
 
 alias transfer=transfer
 
-# Alias for neovim-qt
+# Aliases for neovim
 alias qvim=nvim-qt
 alias qvimdiff="nvim-qt -- -d"
+alias nvimdiff="nvim -d"
+
+# Add locations to $PATH
+PATH=$PATH:~/.local/bin
 
 # Source zsh-syntax-highlight
 source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

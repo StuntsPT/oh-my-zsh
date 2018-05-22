@@ -48,9 +48,6 @@ bindkey -v
 
 #BRUNO OPTIONS:
 setopt SH_WORD_SPLIT # Pra fazer split estilo bash (obriga\ a\ escrever\ assim\ pa\ não\ partir, mas torna compativel com scripts bash)
-#History search
-bindkey '^[OA' history-search-backward
-bindkey '^[OB' history-search-forward
 
 ###############
 #Edited By me:#

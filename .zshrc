@@ -102,7 +102,7 @@ if (( ! $+commands[curl] )); then
   return 1
 fi
 
-transfer() { 
+transfer_func() { 
     # check arguments
     if [ $# -eq 0 ]; 
     then 
@@ -149,11 +149,11 @@ transfer() {
     rm -f $tmpfile
 }
 
-alias transfer=transfer
+alias transfer=transfer_func
 
 # Aliases for neovim
-alias gnvim=nvim-gtk
-alias gnvimdiff="nvim-gtk -- -d"
+alias kvim=nvim-gtk
+alias kvimdiff="nvim-gtk -- -d"
 alias nvimdiff="nvim -d"
 
 # Add locations to $PATH

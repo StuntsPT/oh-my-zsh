@@ -7,16 +7,11 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="daft"
 
-alias upgrade="yaourt -Syu --aur"
-alias cleanup="yaourt -Qtd"
+alias upgrade="pikaur -Syu"
+alias cleanup="pikaur -Scc"
 alias itxroot="ssh -Y root@10.10.10.1"
 alias itxme="ssh 10.10.10.1"
-alias RADGET="cat /sys/class/drm/card0/device/power_profile"
-alias MIDRAD="echo mid > /sys/class/drm/card0/device/power_profile"
-alias LOWRAD="echo low > /sys/class/drm/card0/device/power_profile"
-alias HIGHRAD="echo high > /sys/class/drm/card0/device/power_profile"
 alias scp="rsync -avP"
-
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"

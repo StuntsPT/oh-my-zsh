@@ -1,6 +1,13 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Activate conda if configured
+CONDA_CONFIG="${HOME}/.config/conda_init.sh"
+if [ -f ${CONDA_CONFIG} ]
+then
+	source ${CONDA_CONFIG}
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -168,10 +175,3 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 
 # eval $(thefuck --alias)
-
-# Activate conda if configured
-CONDA_CONFIG="${HOME}/.config/conda_init.sh"
-if [ -f ${CONDA_CONFIG} ]
-then
-	source ${CONDA_CONFIG}
-fi

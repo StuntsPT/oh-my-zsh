@@ -41,7 +41,10 @@ function my_current_branch() {
 }
 
 function conda_info() {
-    echo $(basename ${CONDA_DEFAULT_ENV})
+  if [[ -n $CONDA_DEFAULT_ENV ]]; then
+    echo ${CONDA_PROMPT}
+    #echo $(basename ${CONDA_DEFAULT_ENV})
+  fi
 }
 
 if [ "$(whoami)" = "root" ]
@@ -70,7 +73,7 @@ MY_USER="%{$fg_bold[green]%}%n"
 MY_HOST="%{$fg_bold[grey]%}%m"
 MY_PATH="%{$fg_bold[white]%}%${PWD/#$HOME/~}"
 SSH="%{$fg_bold[green]%}(ssh)"
-CONDA_PROMPT="%{$fg_bold[red]%}{$(conda_info)}"
+CONDA_PROMPT="%{$fg_bold[red]%}{${CONDA_DEFAULT_ENV}}"
 
 # Current time 24-hour format
 MY_TIME="%{$fg_bold[blue]%}[%T]%{$reset_color%}"

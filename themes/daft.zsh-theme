@@ -40,6 +40,10 @@ function my_current_branch() {
   echo $(current_branch || echo "(no branch)")
 }
 
+function conda_info() {
+    echo $(basename ${CONDA_DEFAULT_ENV})
+}
+
 if [ "$(whoami)" = "root" ]
 then TIP_COLOR="%{$fg_bold[red]%}" && USER_SYMBOL="#"
 else TIP_COLOR="%{$fg_bold[blue]%}" && USER_SYMBOL="$"
@@ -66,6 +70,7 @@ MY_USER="%{$fg_bold[green]%}%n"
 MY_HOST="%{$fg_bold[grey]%}%m"
 MY_PATH="%{$fg_bold[white]%}%${PWD/#$HOME/~}"
 SSH="%{$fg_bold[green]%}(ssh)"
+CONDA_PROMPT="%{$fg_bold[red]%}{$(conda_info)}"
 
 # Current time 24-hour format
 MY_TIME="%{$fg_bold[blue]%}[%T]%{$reset_color%}"
@@ -77,7 +82,7 @@ MY_RETURN="%{$fg_no_bold[yellow]%}%?%{$reset_color%}"
 MY_TERMS="%{$fg_no_bold[yellow]%}%L%{$reset_color%}"
 
 # Line one and two of the prompt
-PROMPT='${START_LINE_ONE}${MY_USER}${USER_HOST_SPLIT}${MY_HOST} ${MY_TIME} ${PREFIX}${MY_PATH}${SUFFIX} $(my_git_prompt) $(ssh_connection) $(repos_type)
+PROMPT='${START_LINE_ONE}${MY_USER}${USER_HOST_SPLIT}${MY_HOST} ${MY_TIME} ${PREFIX}${MY_PATH}${SUFFIX} $(my_git_prompt) $(ssh_connection) $(repos_type) ${CONDA_PROMPT}
 ${START_LINE_TWO}${THE_TIP}'
 RPS1="$(vi_mode_prompt_info) ${MY_RETURN}"
 

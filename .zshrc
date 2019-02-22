@@ -168,3 +168,10 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 
 # eval $(thefuck --alias)
+
+# Activate conda if configured
+CONDA_CONFIG="${HOME}/.config/conda_init.sh"
+if [ -f ${CONDA_CONFIG} ]
+then
+	source ${CONDA_CONFIG}
+fi

@@ -85,7 +85,7 @@ MY_RETURN="%{$fg_no_bold[yellow]%}%?%{$reset_color%}"
 MY_TERMS="%{$fg_no_bold[yellow]%}%L%{$reset_color%}"
 
 # Line one and two of the prompt
-PROMPT='${START_LINE_ONE}${MY_USER}${USER_HOST_SPLIT}${MY_HOST} ${MY_TIME} ${PREFIX}${MY_PATH}${SUFFIX} $(my_git_prompt) $(ssh_connection) $(repos_type) ${CONDA_PROMPT}
+PROMPT='${START_LINE_ONE}${MY_USER}${USER_HOST_SPLIT}${MY_HOST} ${MY_TIME} ${PREFIX}${MY_PATH}${SUFFIX} $(my_git_prompt) $(ssh_connection) $(repos_type) $(conda_info)
 ${START_LINE_TWO}${THE_TIP}'
 RPS1="$(vi_mode_prompt_info) ${MY_RETURN}"
 

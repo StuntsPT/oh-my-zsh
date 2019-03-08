@@ -175,3 +175,6 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 
 # eval $(thefuck --alias)
+
+EDITOR=nvim
+VISUAL=kvim

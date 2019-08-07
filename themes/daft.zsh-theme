@@ -71,7 +71,7 @@ PREFIX="%{$fg_bold[grey]%}["
 SUFFIX="%{$fg_bold[grey]%}]"
 MY_USER="%{$fg_bold[green]%}%n"
 MY_HOST="%{$fg_bold[grey]%}%m"
-MY_PATH="%{$fg_bold[white]%}%${PWD/#$HOME/~}"
+MY_PATH="%{$fg_bold[white]%}%~"
 SSH="%{$fg_bold[green]%}(ssh)"
 
 # Current time 24-hour format

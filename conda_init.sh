@@ -1,5 +1,5 @@
 # >>> conda init >>>
-_CONDA_PATH=$HOME/.local/miniconda2
+_CONDA_PATH=$HOME/.local/miniconda3
 function conda_init {
 __conda_setup="$(CONDA_REPORT_ERRORS=false "${_CONDA_PATH}/bin/conda" shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then

@@ -154,8 +154,10 @@ transfer_func() {
 alias transfer=transfer_func
 
 # Aliases for neovim
-alias kvim=nvim-gtk
-alias kvimdiff="nvim-gtk -- -d"
+#alias kvim=nvim-gtk
+#alias kvimdiff="nvim-gtk -- -d"
+alias kvim=nvim-qt
+alias kvimdiff="nvim-qt -- -d"
 alias nvimdiff="nvim -d"
 
 # Add locations to $PATH

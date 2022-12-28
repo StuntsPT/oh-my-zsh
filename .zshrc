@@ -15,7 +15,7 @@ fi
 ZSH_THEME="daft"
 
 alias upgrade="pikaur -Syu"
-alias cleanup="pikaur -Scc"
+alias cleanup="sudo pacman -Scc"
 alias itxroot="ssh -Y root@10.10.10.1"
 alias itxme="ssh 10.10.10.1"
 alias scp="rsync -avP"

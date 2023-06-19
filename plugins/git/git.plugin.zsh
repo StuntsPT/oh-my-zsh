@@ -27,6 +27,16 @@ function work_in_progress() {
   command git -c log.showSignature=false log -n 1 2>/dev/null | grep -q -- "--wip--" && echo "WIP!!"
 }
 
+# Similar to `gunwip` but recursive "Unwips" all recent `--wip--` commits not just the last one
+function gunwipall() {
+  local _commit=$(git log --grep='--wip--' --invert-grep --max-count=1 --format=format:%H)
+  
+  # Check if a commit without "--wip--" was found and it's not the same as HEAD
+  if [[ "$_commit" != "$(git rev-parse HEAD)" ]]; then
+    git reset $_commit || return 1
+  fi
+}
+
 # Check if main exists and use instead of master
 function git_main_branch() {
   command git rev-parse --git-dir &>/dev/null || return
@@ -312,7 +322,7 @@ alias gtv='git tag | sort -V'
 alias gtl='gtl(){ git tag --sort=-v:refname -n --list "${1}*" }; noglob gtl'
 
 alias gunignore='git update-index --no-assume-unchanged'
-alias gunwip='git log --max-count=1 | grep -q -c "\--wip--" && git reset HEAD~1'
+alias gunwip='git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
 alias gup='git pull --rebase'
 alias gupv='git pull --rebase --verbose'
 alias gupa='git pull --rebase --autostash'

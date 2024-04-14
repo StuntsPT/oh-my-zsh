@@ -159,6 +159,7 @@ alias transfer=transfer_func
 alias kvim=nvim-qt
 alias kvimdiff="nvim-qt -- -d"
 alias nvimdiff="nvim -d"
+alias neovidediff="neovide --no-tabs -- -d"
 
 # Alias for micromamba
 alias mm=micromamba

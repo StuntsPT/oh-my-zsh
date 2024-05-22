@@ -160,6 +160,7 @@ alias kvim=nvim-qt
 alias kvimdiff="nvim-qt -- -d"
 alias nvimdiff="nvim -d"
 alias neovidediff="neovide --no-tabs -- -d"
+alias neovide="neovide --fork"
 
 # Alias for micromamba
 alias mm=micromamba

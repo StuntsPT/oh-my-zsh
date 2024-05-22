@@ -38,7 +38,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git history-substring-search python)
+plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,8 +167,6 @@ alias mm=micromamba
 # Add locations to $PATH
 PATH=$PATH:~/.local/bin
 
-# Source zsh-syntax-highlight
-source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Added for global npm under ~/
 #NPM_PACKAGES="${HOME}/.npm-packages"
@@ -183,8 +181,8 @@ source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # eval $(thefuck --alias)
 
 export SYSTEMD_EDITOR=nvim
-#EDITOR=nvim
-#VISUAL=kvim
+EDITOR=nvim
+VISUAL=neovide
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -198,3 +196,6 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# Source zsh-syntax-highlight
+source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

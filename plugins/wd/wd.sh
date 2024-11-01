@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # WARP DIRECTORY
 # ==============
@@ -8,7 +8,7 @@
 # @github.com/mfaerevaag/wd
 
 # version
-readonly WD_VERSION=0.7.0
+readonly WD_VERSION=0.9.1
 
 # colors
 readonly WD_BLUE="\033[96m"
@@ -59,7 +59,7 @@ wd_print_msg()
     then
         local color="${1:-$WD_BLUE}"  # Default to blue if no color is provided
         local msg="$2"
-        
+
         if [[ -z "$msg" ]]; then
             print "${WD_RED}*${WD_NOC} Could not print message. Sorry!"
         else
@@ -90,7 +90,6 @@ Commands:
     clean                Remove points warping to nonexistent directories (will prompt unless --force is used)
 
     -v | --version  Print version
-    -d | --debug    Exit after execution with exit codes (for testing)
     -c | --config   Specify config file (default ~/.warprc)
     -q | --quiet    Suppress all output
     -f | --force    Allows overwriting without warning (for add & clean)
@@ -345,6 +344,7 @@ wd_path()
 wd_show()
 {
     local name_arg=$1
+    local show_pwd
     # if there's an argument we look up the value
     if [[ -n $name_arg ]]
     then
@@ -359,12 +359,12 @@ wd_show()
         local wd_matches
         wd_matches=()
         # do a reverse lookup to check whether PWD is in $points
-        PWD="${PWD/$HOME/~}"
-        if [[ ${points[(r)$PWD]} == "$PWD" ]]
+        show_pwd="${PWD/$HOME/~}"
+        if [[ ${points[(r)$show_pwd]} == "$show_pwd" ]]
         then
             for name in ${(k)points}
             do
-                if [[ $points[$name] == "$PWD" ]]
+                if [[ $points[$name] == "$show_pwd" ]]
                 then
                     wd_matches[$(($#wd_matches+1))]=$name
                 fi
@@ -372,7 +372,7 @@ wd_show()
 
             wd_print_msg "$WD_BLUE" "$#wd_matches warp point(s) to current directory: ${WD_GREEN}$wd_matches${WD_NOC}"
         else
-            wd_print_msg "$WD_YELLOW" "No warp point to $(echo "$PWD" | sed "s:$HOME:~:")"
+            wd_print_msg "$WD_YELLOW" "No warp point to $show_pwd"
         fi
     fi
 }
@@ -426,7 +426,6 @@ wd_export_static_named_directories() {
 WD_CONFIG=${WD_CONFIG:-$HOME/.warprc}
 local WD_QUIET=0
 local WD_EXIT_CODE=0
-local WD_DEBUG=0
 
 # Parse 'meta' options first to avoid the need to have them before
 # other commands. The `-D` flag consumes recognized options so that
@@ -436,7 +435,6 @@ zparseopts -D -E \
     c:=wd_alt_config -config:=wd_alt_config \
     q=wd_quiet_mode -quiet=wd_quiet_mode \
     v=wd_print_version -version=wd_print_version \
-    d=wd_debug_mode -debug=wd_debug_mode \
     f=wd_force_mode -force=wd_force_mode
 
 if [[ ! -z $wd_print_version ]]
@@ -583,9 +581,4 @@ unset args
 unset points
 unset val &> /dev/null # fixes issue #1
 
-if [[ -n $wd_debug_mode ]]
-then
-    exit $WD_EXIT_CODE
-else
-    unset wd_debug_mode
-fi
+return $WD_EXIT_CODE

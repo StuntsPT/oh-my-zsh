@@ -79,6 +79,7 @@ plugins=(... git)
 | `gcss`                 | `git commit -S -s`                                                                                                              |
 | `gcssm`                | `git commit -S -s -m`                                                                                                           |
 | `gcf`                  | `git config --list`                                                                                                             |
+| `gcfu`                 | `git commit --fixup`                                                                                                            |
 | `gdct`                 | `git describe --tags $(git rev-list --tags --max-count=1)`                                                                      |
 | `gd`                   | `git diff`                                                                                                                      |
 | `gdca`                 | `git diff --cached`                                                                                                             |
@@ -90,7 +91,7 @@ plugins=(... git)
 | `gdnolock`             | `git diff $@ ":(exclude)package-lock.json" ":(exclude)\*.lock"`                                                                 |
 | `gdt`                  | `git diff-tree --no-commit-id --name-only -r`                                                                                   |
 | `gf`                   | `git fetch`                                                                                                                     |
-| `gfa`                  | `git fetch --all --tags --prune`                                                                                                       |
+| `gfa`                  | `git fetch --all --tags --prune`                                                                                                |
 | `gfo`                  | `git fetch origin`                                                                                                              |
 | `gg`                   | `git gui citool`                                                                                                                |
 | `gga`                  | `git gui citool --amend`                                                                                                        |
@@ -212,7 +213,7 @@ plugins=(... git)
 | `gtv`                  | `git tag \| sort -V`                                                                                                            |
 | `gignore`              | `git update-index --assume-unchanged`                                                                                           |
 | `gunignore`            | `git update-index --no-assume-unchanged`                                                                                        |
-| `gwch`                 | `git whatchanged -p --abbrev-commit --pretty=medium`                                                                            |
+| `gwch`                 | `git log --patch --abbrev-commit --pretty=medium --raw`                                                                         |
 | `gwt`                  | `git worktree`                                                                                                                  |
 | `gwtls`                | `git worktree list`                                                                                                             |
 | `gwtmv`                | `git worktree move`                                                                                                             |

@@ -140,3 +140,6 @@ unset __mamba_setup
 
 # Source zsh-syntax-highlight
 source ${ZSH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=yellow'
